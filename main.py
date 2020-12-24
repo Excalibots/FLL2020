@@ -11,7 +11,7 @@ from ev3dev2.sensor.lego import ColorSensor
 #mdiff = MoveDifferential()
 
 tank = MoveTank(OUTPUT_A, OUTPUT_D)
-tank.cs = ColorSensor(INPUT_4)
+tank.cs = ColorSensor(INPUT_3)
 
 
 global l
@@ -26,7 +26,7 @@ tank.on(left_speed=l, right_speed=r)
 # Follow the line for 4500ms
 def follow_line():
 	tank.follow_line(
-		kp=1.5, ki=0.009, kd=0,
+		kp=1.5, ki=0.009, kd=0.2,
 		speed=SpeedPercent(10),
 		follow_for=follow_for_ms,
 		ms=14000,
@@ -41,46 +41,58 @@ def follow_line():
 
 def run_one():
 	print ("going forward")
-	x=20
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.75)
+	x=25
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.6)
 
 
 
 	print ("going left")
-	r=12
-	l=-12
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.12 )
+	r=15
+	l=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.37 )
 
 
 	print ("going forward")
-	x=20
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.39)
+	x=16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.55)
 
 	print ("going right")
-	r=-9
-	
-	l=9
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.21 )
+	r=0
+	l=15
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.22 )
 
 	print ("going backward")
-	x=-20
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.4)
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.47)
 
 	print ("going left")
-	r=12
-	l=-12
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.42)
+	r=15
+	l=-25
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.48	)
 
 	print ("going forward")
-	x=20
+	x=16
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.6)
 
 	print ("going backward")
-	x=-20
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.1)
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2)
+
+	
+# #
+# 	print ("going backward")s
+# 	x=-30
+# 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.1)
+
+# 	print ("going left")
+# 	r=30
+# 	l=-50
+# 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.33)
+	
 
 	#turn right
 	#backward
+
 	#turn left
 	#straight
 	#left
