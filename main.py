@@ -2,7 +2,7 @@
 
 from time import sleep
 from ev3dev2.sound import Sound
-from ev3dev2.motor import OUTPUT_A, OUTPUT_D, LargeMotor, SpeedPercent, MoveTank, MoveDifferential, follow_for_ms
+from ev3dev2.motor import OUTPUT_A, OUTPUT_D, LargeMotor, MediumMotor, SpeedPercent, MoveTank, MoveDifferential, follow_for_ms
 from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
 from ev3dev2.sensor.lego import ColorSensor
 import ev3dev2
@@ -14,7 +14,7 @@ import ev3dev2
 tank = MoveTank(OUTPUT_A, OUTPUT_D)
 tank.cs = ColorSensor(INPUT_4)
 color3 = ColorSensor(INPUT_3)
-
+#ev3dev2.motor.Motor(address=None, name_pattern='*', name_exact=False, **kwargs)
 global l
 global r
 l = 0
@@ -116,7 +116,9 @@ def run_one():
 
 	print ("going backward")
 	x=-45
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.7)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.2)
+
+# run_one()
 
 def run_two():
 	print ("going backward")
@@ -180,41 +182,36 @@ def run_two():
 
 def run_half():
 
-	# print ("going forward")
-	# l=20
-	# r=20.1
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.9
-	# )
+	print ("going forward")
+	l=20
+	r=20.1
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.95)
+	
 	# print ("going forward")
 	# l=-6
-	# r=2
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.18
-	# )
+	# r=4
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.2)
 
-	# print ("going forward")
-	# l=30
-	# r=30
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 4
-	# )
+	print ("going forward")
+	l=28
+	r=30
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 4)
 
-	# print ("going forward")
-	# l=-25
-	# r=-20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.7
-	# )
+	print ("going forward")
+	l=-25
+	r=-20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.7)
 	
-	# print ("going forward")
-	# l=5
-	# r=20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3
-	# )
+	print ("going forward")
+	l=10
+	r=20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)
 	
-	# print ("going forward")
-	# l=10
-	# r=13
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.5
-	# )
-
+	print ("going forward")
+	l=10
+	r=13
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.5)\
+ 
 	# tank.follow_line(
 	# 	kp=3.00, ki=0.005, kd=0.02,
 	# 	speed=SpeedPercent(10),
@@ -226,56 +223,74 @@ def run_half():
 	# 	target_light_intensity=10
 	# )
 
-	# print ("going forward")
-	# l=20
-	# r=20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.8
-	# )
+	print ("going forward")
+	l=30
+	r=20
 
-	# print ("going forward")
-	# l=0
-	# r=100
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3
-	# )
-
-	# print ("going forward")
-	# l=-20
-	# r=-20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1
-	# )
-
-
-
-	# while color3.reflected_light_intensity < 2 or color3.reflected_light_intensity > 7:
-	# 	print ("looking for line...")
-	# 	l=2
-	# 	r=7
-	# 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.1)
-
-	# print('Found Line!')
-
-	# print ("going forward")
-	# l=0
-	# r=216
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.2)
-
-
-
-
-
-	# print ("going forward")
-	# l=50
-	# r=50
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 8
-	# )
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 4.0)
 
 	print ("going forward")
-	x=20
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.95)
+	l=-30
+	r=-8
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.3)
+
+	print ("going forward")
+	x=25
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.2)
 
 	print ("going forward")
 	l=0
-	r=100
+	r=50
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3)
 
-run_half()
+	print ("going forward")
+	l=-20
+	r=-20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
+
+	print ("going forward")
+	l=30
+	r=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), .50)
+
+
+
+def Weight():
+	#ev3dev2.motor.on_for_rotations(SpeedPercent(x) 0.55)
+	m = MediumMotor('outC')
+
+	m.run_timed(time_sp=3000, speed_sp=-1000)
+	sleep(1)
+	m.run_timed(time_sp=3000, speed_sp=1500)
+                   
+
+
+def Row_Machine():
+
+	print ("going forward")
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.7)
+
+	print ("going right")
+	r=-25
+	l=5
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.28 )
+
+	print ("going forward")
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.45)
+
+	print ("going forward")
+	x=16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.25)
+
+	print ("going right")
+	r=-25
+	l=5
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),-0.68 )
+
+	print ("going forward")
+	x=16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.45)
+
+Row_Machine()
