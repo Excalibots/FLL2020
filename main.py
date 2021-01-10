@@ -8,7 +8,6 @@ from ev3dev2.sensor.lego import ColorSensor
 import ev3dev2
 
 
-#mdiff = MoveDifferential(OUTPUT_A, OUTPUT_B, EV3Tire, 16 * STUD_MM)
 #mdiff = MoveDifferential()
 
 tank = MoveTank(OUTPUT_A, OUTPUT_D)
@@ -112,7 +111,7 @@ def run_one():
 	print ("going right")
 	r=40
 	l=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1 )
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1.3 )
 
 	print ("going backward")
 	x=-45
@@ -209,8 +208,8 @@ def run_half():
 	
 	print ("going forward")
 	l=10
-	r=13
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.5)\
+	r=15
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.5)
  
 	# tank.follow_line(
 	# 	kp=3.00, ki=0.005, kd=0.02,
@@ -225,7 +224,7 @@ def run_half():
 
 	print ("going forward")
 	l=30
-	r=20
+	r=19
 
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 4.0)
 
@@ -234,13 +233,17 @@ def run_half():
 	r=-8
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.3)
 
+	# print ("going forward")
+	# l=0
+	# r=0
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.1)
 	print ("going forward")
-	x=25
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.2)
+	x=30
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
 
 	print ("going forward")
 	l=0
-	r=50
+	r=30
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3)
 
 	print ("going forward")
@@ -251,17 +254,18 @@ def run_half():
 	print ("going forward")
 	l=30
 	r=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), .50)
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), .10)
 
-
+run_half()
 
 def Weight():
 	#ev3dev2.motor.on_for_rotations(SpeedPercent(x) 0.55)
 	m = MediumMotor('outC')
 
-	m.run_timed(time_sp=3000, speed_sp=-1000)
+	m.run_timed(time_sp=3000, speed_sp=-1500)
 	sleep(1)
-	m.run_timed(time_sp=3000, speed_sp=1500)
+	m.run_timed(time_sp=3000, speed_sp=3000)
+
                    
 
 
@@ -274,24 +278,84 @@ def Row_Machine():
 	print ("going right")
 	r=-25
 	l=5
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.28 )
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.38 )
 
 	print ("going forward")
 	x=-16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.45)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.35)
+
+	print ("going forward")
+	x=-10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.16)
+
+	print ("going forward")
+	x=10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.31)
+
+	print ("going right")
+	r=-15
+	l=3
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),-0.1 )
+
+
+	print ("going right")
+	r=-15
+	l=3
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),-0.28 )
 
 	print ("going forward")
 	x=16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.25)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1)
+
+	print ("going right")
+	r=-15
+	l=3
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),-0.38 )
+
+	print ("going forward")
+	x=10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.11)
+
+	print ("going forward")
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.4)
+
+	print ("going right")
+	r=-15
+	l=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.85 )
+
+	m = MediumMotor('outC')
+	i = 0
+	while i < 5:
+		m.run_timed(time_sp=1000, speed_sp=-1000)
+		sleep(1)
+		m.run_timed(time_sp=1000, speed_sp=750)
+		i+=1
+
+def Row_Machine1():
+
+	print ("going forward")
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.75)
 
 	print ("going right")
 	r=-25
-	l=5
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),-0.68 )
+	l=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.5 )
 
 	print ("going forward")
-	x=16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.45)
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.51)
 
-#row machine
-Row_Machine()
+	print ("going forward")
+	x=10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.4)
+
+
+	
+
+
+# Row_Machine1()
+
+# run_half()
