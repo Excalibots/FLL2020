@@ -13,6 +13,8 @@ import ev3dev2
 tank = MoveTank(OUTPUT_A, OUTPUT_D)
 tank.cs = ColorSensor(INPUT_4)
 color3 = ColorSensor(INPUT_3)
+color1 = ColorSensor(INPUT_1)
+
 #ev3dev2.motor.Motor(address=None, name_pattern='*', name_exact=False, **kwargs)
 global l
 global r
@@ -185,31 +187,29 @@ def run_half():
 	l=20
 	r=20.1
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.95)
-	
-	# print ("going forward")
-	# l=-6
-	# r=4
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.2)
 
 	print ("going forward")
 	l=28
 	r=30
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 4)
 
-	print ("going forward")
-	l=-25
-	r=-20
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.7)
+	# ORIGINAL CODE TO COME BACK
+	# print ("going forward")
+	# l=-30
+	# r=-20
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.7)
 	
-	print ("going forward")
-	l=10
-	r=20
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)
 	
-	print ("going forward")
-	l=10
-	r=15
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.5)
+
+	# print ("going forward")
+	# l=0
+	# r=25
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)
+	
+	# print ("going forward")
+	# l=10
+	# r=15
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.5)
  
 	# tank.follow_line(
 	# 	kp=3.00, ki=0.005, kd=0.02,
@@ -224,39 +224,43 @@ def run_half():
 
 	print ("going forward")
 	l=30
-	r=19
+	r=20
 
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 4.0)
 
-	print ("going forward")
-	l=-30
-	r=-8
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.3)
+	
+	# print ("going forward")
+	# l=-30
+	# r=-8
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.4)
+
+	# print ("going forward")
+	# x=30
+	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
 
 	# print ("going forward")
 	# l=0
+	# r=30
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3)
+
+	# print ("going forward")
+	# l=-20
+	# r=-20
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
+
+	# print ("going forward")
+	# l=30
 	# r=0
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.1)
-	print ("going forward")
-	x=30
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.9)
 
-	print ("going forward")
-	l=0
-	r=30
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3)
+	# print ("going forward")
+	# l=30
+	# r=40
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.0)
 
-	print ("going forward")
-	l=-20
-	r=-20
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
-
-	print ("going forward")
-	l=30
-	r=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), .10)
-
-run_half()
+	Row_Machine_Final()
+	
+#run_half()
 
 def Weight():
 	#ev3dev2.motor.on_for_rotations(SpeedPercent(x) 0.55)
@@ -265,9 +269,6 @@ def Weight():
 	m.run_timed(time_sp=3000, speed_sp=-1500)
 	sleep(1)
 	m.run_timed(time_sp=3000, speed_sp=3000)
-
-                   
-
 
 def Row_Machine():
 
@@ -297,6 +298,10 @@ def Row_Machine():
 	l=3
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),-0.1 )
 
+	print ("going right")
+	r=10
+	l=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),-0.1 )
 
 	print ("going right")
 	r=-15
@@ -330,32 +335,138 @@ def Row_Machine():
 	while i < 5:
 		m.run_timed(time_sp=1000, speed_sp=-1000)
 		sleep(1)
-		m.run_timed(time_sp=1000, speed_sp=750)
+		m.run_timed(time_sp=1000, speed_sp=750)	
 		i+=1
+
 
 def Row_Machine1():
 
 	print ("going forward")
 	x=-16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.75)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.50)
 
 	print ("going right")
-	r=-25
+	r=-30
 	l=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.5 )
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.3 )
 
 	print ("going forward")
 	x=-16
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.51)
 
+	print ("going right")
+	r=40
+	l=20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1 )
+
+	print ("going right")
+	r=5
+	l=-10
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.5 )
+
+def Row_Machine2():
+	print ("going right")
+	r=-20
+	l=-20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.8 )
+
+	print ("going right")
+	r=-10
+	l=10
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.21 )
+
 	print ("going forward")
-	x=10
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.4)
+	x=-16
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.51)
+
+	print ("going back left")
+	r=25
+	l=-10
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.7)
+
+	print ("going forward")
+	x=-5
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.2)
+
+	print ("going backwards")
+	x=5
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.3) 
 
 
+def Row_Machine_Final():
+	r=-15
+	l=-25
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1.3)
 	
 
+	r=-10
+	l=10
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.55)
 
-# Row_Machine1()
+	r=-6
+	l=-6
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.8)
 
-# run_half()
+
+	r=20
+	l=5
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1.5)
+
+	r=20
+	l=20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1)
+
+	r=20
+	l=15
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1)
+
+
+#Row_Machine_Final()
+
+def Bench_Scotch():
+	print ("going forward")
+	x=-20
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.91)
+
+	r=-10
+	l=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.1 )
+	
+
+	print ("going forward")
+	x=-30
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.55)
+
+	r=-10
+	l=-1
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.2 )
+
+	sleep(0.5)
+
+	print ("going forward")
+	x=50
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.62)
+
+def go_back_from_stepper():
+	x=-20
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .2)
+	light_intensity = color1.reflected_light_intensity
+	while light_intensity < 80:
+		tank.on(SpeedPercent(x), SpeedPercent(x))
+		light_intensity = color1.reflected_light_intensity
+		print(light_intensity)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .2)
+	light_intensity = color1.reflected_light_intensity
+	while light_intensity < 80:
+		tank.on(SpeedPercent(x), SpeedPercent(x))
+		light_intensity = color1.reflected_light_intensity
+		print(light_intensity)
+	tank.stop()
+
+run_half()
+go_back_from_stepper()
+
+
+
+
+#Bench_Scotch()
