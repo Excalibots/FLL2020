@@ -147,8 +147,10 @@ def do_treadmill():
 
 	print ("getting on treadmill")
 	l=20
-	r=21
+	r=20
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.1)
+
+	sleep(0.5)
 
 	print('running on treadmill')
 	l=0
@@ -176,6 +178,12 @@ def blah():
 	print("***********************")
 
 def back_from_treadmill():
+	
+	print('running on treadmill')
+	l=0
+	r=-20
+	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 0.3)
+
 	x=-20
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .2)
 	print(color1.color_name)
@@ -183,8 +191,9 @@ def back_from_treadmill():
 		tank.on(SpeedPercent(x), SpeedPercent(x))
 	tank.stop()
 
-	tank.on_for_degrees(SpeedPercent(0), SpeedPercent(-20),200)
-	
+	tank.on_for_degrees(SpeedPercent(2), SpeedPercent(-20),200)
+
+	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(20),400)
 def do_rower():
 	align()
 	tank.on_for_seconds(SpeedPercent(20),SpeedPercent(20),2.5)
