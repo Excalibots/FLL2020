@@ -10,6 +10,8 @@ import ev3dev2
 
 
 tank = MoveTank(OUTPUT_A, OUTPUT_D)
+leftMotor = LargeMotor(OUTPUT_A)
+rightMotor = LargeMotor(OUTPUT_D)
 tank.cs = ColorSensor(INPUT_4)
 color1 = ColorSensor(INPUT_1)
 color2 = ColorSensor(INPUT_2)
