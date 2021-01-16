@@ -9,7 +9,14 @@ from other_runs import *
 #go_back_from_step_tracker()
 #Bench_Scotch()
 #do_rower()
-#do_step_tracker()
-#go_back_from_step_tracker()
+# do_step_tracker()
+# go_back_from_step_tracker()
+
+
 ready_treadmill()
 do_treadmill()
+back_from_treadmill()
+
+# while True:
+#     blah()
+#     sleep(3)

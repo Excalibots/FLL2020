@@ -130,16 +130,61 @@ def ready_treadmill():
 	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 2)	
 
 def do_treadmill():
-	print ("reach stepper and push")
+	print ("turning back to face treadmillh")
 	l=-20
 	r=-10
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.2)
 
-	print ("reach stepper and push")
+	print ("turning")
 	l=0
 	r=20
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)
 
+	print ("slight turn to be perfectly parallel")
+	l=20
+	r=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.07)
+
+	print ("getting on treadmill")
+	l=20
+	r=21
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.1)
+
+	print('running on treadmill')
+	l=0
+	r=100
+	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 3)
+
+	# print('getting of treadmill')
+	# l=-20
+	# r=-20
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
+
+	# print('turning to face walll')
+	# l=20
+	# r=-20
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)
+
+	# print('aligning with walll')
+	# l=20
+	# r=20
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
+def blah():
+	print(color1.color_name)
+	print(color2.color_name)
+	print(color3.color_name)
+	print("***********************")
+
+def back_from_treadmill():
+	x=-20
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .2)
+	print(color1.color_name)
+	while color1.color_name !="Black":
+		tank.on(SpeedPercent(x), SpeedPercent(x))
+	tank.stop()
+
+	tank.on_for_degrees(SpeedPercent(0), SpeedPercent(-20),200)
+	
 def do_rower():
 	align()
 	tank.on_for_seconds(SpeedPercent(20),SpeedPercent(20),2.5)
