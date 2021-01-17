@@ -6,13 +6,14 @@ from other_runs import *
 from run3 import *
 #set up the runs here
 
+print('Run 1')
+run_one()
 
-#Bench_Scotch()5
-# do_rower()
-# do_step_tracker()
-#go_back_from_step_tracker()
+print('Run 2')
+#Bench_Scotch()
 
 # print('Run 2a')
+print('Run 2a')
 # do_step_tracker()
 # go_back_from_step_tracker()
 # ready_treadmill()
@@ -22,5 +23,6 @@ from run3 import *
 
 run3_b()
 
+print('Tests')
 # while True:
 # test()
