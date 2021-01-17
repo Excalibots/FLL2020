@@ -2,6 +2,7 @@
 from configruation import *
 
 def align():
+	sleep(1)
 	print("align")
 	while color2.color_name != "White":
 		print(color2.color_name)
@@ -154,8 +155,8 @@ def do_treadmill():
 
 	print('running on treadmill')
 	l=0
-	r=100
-	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 3)
+	r=40
+	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 3.5)
 
 	# print('getting of treadmill')
 	# l=-20
@@ -171,7 +172,7 @@ def do_treadmill():
 	# l=20
 	# r=20
 	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
-def blah():
+def test():
 	print(color1.color_name)
 	print(color2.color_name)
 	print(color3.color_name)
@@ -179,19 +180,19 @@ def blah():
 
 def back_from_treadmill():
 	
-	print('running on treadmill')
+	print('getting down from treadmilll')
 	l=0
 	r=-20
 	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 0.3)
 
 	x=-20
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .2)
-	print(color1.color_name)
-	while color1.color_name !="Black":
-		tank.on(SpeedPercent(x), SpeedPercent(x))
-	tank.stop()
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x),0.75)
+	# print(color1.color_name)
+	# while color1.color_name !="Black":
+	# 	tank.on(SpeedPercent(x), SpeedPercent(x))
+	# tank.stop()
 
-	tank.on_for_degrees(SpeedPercent(2), SpeedPercent(-20),200)
+	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),110)
 
 	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(20),400)
 def do_rower():
@@ -203,7 +204,6 @@ def do_rower():
 	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),500)
 	tank.on_for_degrees(SpeedPercent(15), SpeedPercent(-35),94)
 	tank.on_for_degrees(SpeedPercent(5), SpeedPercent(-20),85)
-
 	print("turn to the rower")
 	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),100)
 	tank.on_for_seconds(SpeedPercent(-10), SpeedPercent(-10),2.1)
