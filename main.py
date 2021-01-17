@@ -21,7 +21,7 @@ print('Run 2a')
 # back_from_treadmill()
 # do_rower()
 
-run3_b()
+#run3_b()
 
 print('Tests')
 # while True:
