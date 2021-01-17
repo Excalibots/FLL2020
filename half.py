@@ -1,4 +1,4 @@
-#!/usr/bin/env pybricks-micropython
+#!/usr/bin/env python3
 from configruation import *
 
 def align():
