@@ -2,7 +2,7 @@
 
 from time import sleep
 from ev3dev2.sound import Sound
-from ev3dev2.motor import OUTPUT_A, OUTPUT_D, LargeMotor, MediumMotor, SpeedPercent, MoveTank, MoveDifferential, follow_for_ms
+from ev3dev2.motor import OUTPUT_A,OUTPUT_B, OUTPUT_C, OUTPUT_D, LargeMotor, MediumMotor, SpeedPercent, MoveTank, MoveDifferential, follow_for_ms
 from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
 from ev3dev2.sensor.lego import ColorSensor
 import ev3dev2
