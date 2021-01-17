@@ -54,7 +54,7 @@ def run_one():
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.22 )
 
 	print ("going backward")
-	x=-16
+	x=-10
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.17)
 
 	sleep(0.25)
@@ -64,39 +64,43 @@ def run_one():
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.09)
 
 	print ("going backward")
-	x=-16
+	x=-10
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.4)
 
-
 	print ("going left")
-	r=30
-	l=-1
+	r=15
+	l=-0.5
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.7 )
 
 	print ("going left")
-	r=-1
-	l=-30
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.59 )
+	r=-0.5
+	l=-15
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.57 )
 
 
 	print ("going backward")
 	x=-10
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.14)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.2)
 
 	print ("going backward")
 
 	x=16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.5)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.7)
 
 	print ("going left")
 	r=-30
 	l=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3 )
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.43 )
 
 	print ("going backward")
 
-	x=16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.5)
+	x=-12
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.11)
+
+	print ("going backward")
+
+	x=30
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.2)
 
 
 # run_one()
@@ -414,8 +418,8 @@ def Bench_Scotch():
 	
 
 	print ("going forward")
-	x=-30
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.55)
+	x=-10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.3)
 
 	r=-10
 	l=-1
