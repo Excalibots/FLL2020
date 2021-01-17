@@ -7,7 +7,7 @@ from run3 import *
 #set up the runs here
 
 print('Run 1')
-run_one()
+#run_one()
 
 print('Run 2')
 #Bench_Scotch()
