@@ -35,7 +35,7 @@ def follow_line():
 def run_one():
 	print ("going forward")
 	x=25
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.63)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.58)
 
 
 	print ("going left")
