@@ -76,36 +76,18 @@ def run_one():
 	print ("going left")
 	r=-1
 	l=-30
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.7 )
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.6 )
 
 
 	print ("going backward")
 	x=-16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.265)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.1)
 
 	print ("going backward")
 
 	x=16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
 
-	print ("going right")
-	r=-30
-	l=-1
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.38 )
-
-	print ("going backward")
-	x=16
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.8)
-
-
-	print ("going right")
-	r=40
-	l=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1.3 )
-
-	print ("going backward")
-	x=-45
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.2)
 
 # run_one()
 
@@ -246,7 +228,7 @@ def run_half():
 	# r=40
 	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.0)
 
-	Row_Machine_Final()
+	# Row_Machine_Final()
 	
 #run_half()
 

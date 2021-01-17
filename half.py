@@ -58,8 +58,6 @@ def align():
 			tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),tankDegrees/2)
 			tank.stop()
 
-
-
 def do_step_tracker():
 	print ("going forward out of home")
 	l=30
@@ -70,7 +68,6 @@ def do_step_tracker():
 	l=28
 	r=30
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 4)
-
 
 def go_back_from_step_tracker():
 
@@ -131,6 +128,7 @@ def ready_treadmill():
 	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 2)	
 
 def do_treadmill():
+
 	print ("turning back to face treadmillh")
 	l=-20
 	r=-10
@@ -172,6 +170,7 @@ def do_treadmill():
 	# l=20
 	# r=20
 	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
+
 def test():
 	print(color1.color_name)
 	print(color2.color_name)
@@ -195,6 +194,7 @@ def back_from_treadmill():
 	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),110)
 
 	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(20),400)
+
 def do_rower():
 	align()
 	tank.on_for_seconds(SpeedPercent(20),SpeedPercent(20),2.5)
