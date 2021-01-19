@@ -7,7 +7,7 @@ from run3 import *
 #set up the runs here
 
 print('Run 1')
-#run_one()
+# run_one()
 
 print('Run 2')
 # Bench_Scotch()
@@ -20,9 +20,10 @@ print('Run 2a')
 # back_from_treadmill()
 # do_rower()
 
-print('Run 2b')
+print('Run 3')
 run3_b()
 
 print('Tests')
-# while True:
-# test()
+#print('Tests')
+#while True:
+#test()s

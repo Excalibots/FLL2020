@@ -80,7 +80,7 @@ def run_one():
 
 	print ("going backward")
 	x=-10
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.2)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.215)
 
 	print ("going backward")
 
@@ -95,12 +95,38 @@ def run_one():
 	print ("going backward")
 
 	x=-12
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.11)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.31)
 
 	print ("going backward")
 
 	x=30
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.2)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1)
+
+	print ("going left")
+	r=20
+	l=0
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.2 )
+
+	print ("going backward")
+
+	x=30
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
+
+	print ("going left")
+	r=0
+	l=20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.2 )
+
+	print ("going backward")
+
+	x=30
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
+
+
+	
+
+
+
 
 
 # run_one()

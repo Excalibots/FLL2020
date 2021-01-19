@@ -3,6 +3,7 @@ from configruation import *
 
 
 def follow_line_1():
+    print('following line')
     tank.follow_line(
         kp=1.8, ki=0.009, kd=0,
         speed=SpeedPercent(-30),
