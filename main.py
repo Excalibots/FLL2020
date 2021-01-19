@@ -10,7 +10,7 @@ print('Run 1')
 # run_one()
 
 print('Run 2')
-Bench_Scotch()
+# Bench_Scotch()
 
 print('Run 2a')
 # do_step_tracker()
@@ -21,7 +21,7 @@ print('Run 2a')
 # do_rower()
 
 print('Run 3')
-#run3_b()
+run3_b()
 
 print('Tests')
 #print('Tests')
