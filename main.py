@@ -4,6 +4,7 @@ from configruation import *
 from half import *
 from other_runs import *
 from run3 import *
+
 #set up the runs here
 
 print('Run 1')
@@ -13,12 +14,13 @@ print('Run 2')
 # Bench_Scotch()
 
 print('Run 2a')
-# do_step_tracker()
-# go_back_from_step_tracker()
-# ready_treadmill()
-# do_treadmill()
-# back_from_treadmill()
-# do_rower()
+#do_step_tracker()
+#go_back_from_step_tracker()
+#ready_treadmill()
+#do_treadmill()
+#back_from_treadmill()
+#do_rower()
+#Going_Weight()
 
 print('Run 3')
 run3_b()

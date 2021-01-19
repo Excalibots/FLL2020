@@ -214,7 +214,13 @@ def do_rower():
 	tank.on_for_seconds(SpeedPercent(10), SpeedPercent(10),1.5)
 	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(0),20)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(0),10)
-	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(10),)
+	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(10),10)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(15),10)
-	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(10),3)
+	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(10),36)
+	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(-10),10)
 	#end nirav's version of doing the rower
+
+def Going_Weight():
+	print('going to Weight Machine')
+	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),200)
+	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),200)
