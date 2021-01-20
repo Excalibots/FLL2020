@@ -60,6 +60,9 @@ def align():
 			tank.stop()
 
 def do_step_tracker():
+	# print('lift arm')
+	# med.on_for_rotations(100, 2.5, brake=True, block=True)
+
 	print ("going forward out of home")
 	l=30
 	r=30
@@ -216,11 +219,12 @@ def do_rower():
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(0),10)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(10),10)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(15),10)
-	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(10),36)
+	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(10),50)
 	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(-10),10)
 	#end nirav's version of doing the rower
 
 def Going_Weight():
 	print('going to Weight Machine')
-	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),200)
-	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),200)
+	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),500)
+	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(20),180)
+	tank.on_for_seconds(SpeedPercent(30), SpeedPercent(30),2)
