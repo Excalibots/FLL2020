@@ -11,10 +11,20 @@ def follow_line_1():
         ms=1200,
         follow_left_edge=False
         )
+
+def follow_line_2():
+	tank.cs = ColorSensor(INPUT_1)
+	tank.follow_line(
+    	kp=1.8, ki=0.009, kd=0,
+    	speed=SpeedPercent(-30),
+    	follow_for=follow_for_ms,
+    	ms=500,
+    	follow_left_edge=False
+    	)
 # follow line for 1820 ms on the left edge of the line
 
 def run3_b():
-	med.on_for_rotations(30, 1, brake=True, block=True)
+	med.on_for_rotations(-30, 1.5, brake=True, block=True)
 	print("arm up")
 	mdiff.on_for_distance(25, -80, brake=True, block=True)  
 	print("forward complete, ready to line follow")
@@ -36,12 +46,31 @@ def run3_b():
 	print("turn out of mission complete")
 	med.on_for_rotations(30, 1.1, brake=True, block=True)
 	print("mini boccia complete")
-
 	mdiff.on_for_distance(25, -10, brake=True, block=True)
 	rightMotor.on_for_degrees(5, 45.59, brake=True, block=True)
 	mdiff.on_for_distance(25, -200, brake=True, block=True)
-	rightMotor.on_for_degrees(-50, 210, brake=True, block=True)
-	leftMotor.on_for_degrees(50, 180, brake=True, block=True)
+	rightMotor.on_for_degrees(5, -190, brake=True, block=True)
+	mdiff.on_for_distance(25, -200, brake=True, block=True)
+	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),190000000)
+
+
+
+
+	#mdiff.on_for_distance(25, -10, brake=True, block=True)
+	#rightMotor.on_for_degrees(5, 45.59, brake=True, block=True)
+	#mdiff.on_for_distance(25, -200, brake=True, block=True)
+	#rightMotor.on_for_degrees(-50, 210, brake=True, block=True)
+	#leftMotor.on_for_degrees(50, 130, brake=True, block=True)
+	#mdiff.on_Sfor_distance(25, 60, brake=True, block=True)
+	#leftMotor.on_for_degrees(20, -40, brake=True, block=True)
+	#rightMotor.on_for_degrees(20, -60, brake=True, block=True)
+
+
+
+
+
+
+
 
 
     #med.on_for_rotations(30, -0.6, brake=True, block=True)
