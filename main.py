@@ -56,15 +56,33 @@ def tests(state):
                 test()
 
 def buttons():
-    btn.on_right = run_tres
-    btn.on_up = run_dos
-    btn.on_down = run_3b
-    btn.on_enter = tests
-    btn.on_left = run_uno
-    print('starting main')
-    
-    while True:
-        btn.process()
-        sleep(0.01)
+	btn.on_right = run_tres
+	btn.on_up = run_dos
+	btn.on_down = run_3b
+	btn.on_enter = tests
+	btn.on_left = run_uno
+	print('starting main')
+	sound.play_tone(700, 0.5)
+	# sound.play_tone(600, 0.5)
+	# sound.play_tone(700, 0.5)
+	# sound.play_tone(600, 0.5)
+	# sound.play_tone(900, 1)
+
+	# sound.play_song((
+	# ('D4', 'e3'),      # intro anacrouse
+	# ('D4', 'e3'),
+	# ('D4', 'e3'),
+	# ('G4', 'h'),       # meas 1
+	# ('D5', 'h'),
+	# ('C5', 'e3'),      # meas 2
+	# ('B4', 'e3'),
+	# ('A4', 'e3'),
+	# ('G5', 'h'),
+	# ('D5', 'q')))
+	
+	while True:
+		btn.process()
+		sleep(0.01)
+
 
 buttons()
