@@ -68,7 +68,7 @@ def buttons():
 	# sound.play_tone(600, 0.5)
 	# sound.play_tone(900, 1)
 
-	# sound.play_song((
+	#sound.play_song((
 	# ('D4', 'e3'),      # intro anacrouse
 	# ('D4', 'e3'),
 	# ('D4', 'e3'),
