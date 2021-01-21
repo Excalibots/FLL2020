@@ -226,5 +226,5 @@ def do_rower():
 def Going_Weight():
 	print('going to Weight Machine')
 	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),500)
-	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(20),180)
-	tank.on_for_seconds(SpeedPercent(30), SpeedPercent(30),2)
+	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(20),100)
+	tank.on_for_seconds(SpeedPercent(30), SpeedPercent(50),2)

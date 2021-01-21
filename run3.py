@@ -14,8 +14,8 @@ def follow_line_1():
 # follow line for 1820 ms on the left edge of the line
 
 def run3_b():
-	med.on_for_rotations(30, 1, brake=True, block=True)
-	print("arm up")
+	med.on_for_rotations(30, -1.39, brake=True, block=True)
+	print("arm down")
 	mdiff.on_for_distance(25, -80, brake=True, block=True)  
 	print("forward complete, ready to line follow")
 	follow_line_1()
