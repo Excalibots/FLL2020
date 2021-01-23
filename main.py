@@ -43,17 +43,17 @@ def run_3b(state):
         sound.beep()
     else:
         print('Run 3')
-        run3_b()
-
+        align_2()
+        passive3()
+        go_under_bridge()
+        
 def tests(state):
         if state:
             print('starting run tres')
             sound.beep()
         else:
             print('Tests')
-            print('Tests')
-            while True:
-                test()
+            run_one()
 
 def buttons():
 	btn.on_right = run_tres
@@ -68,7 +68,7 @@ def buttons():
 	# sound.play_tone(600, 0.5)
 	# sound.play_tone(900, 1)
 
-	#sound.play_song((
+	# sound.play_song((
 	# ('D4', 'e3'),      # intro anacrouse
 	# ('D4', 'e3'),
 	# ('D4', 'e3'),
