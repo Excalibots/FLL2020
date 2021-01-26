@@ -255,17 +255,26 @@ def run_two():
 
 def Bench_Scotch():
 	print ("going forward")
-	x=-20
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.91)
-
+	x=-5
+	leftMotor.reset()
+	print(leftMotor.degrees)
+	dist = leftMotor.degrees
+	while dist < 300:
+		print(dist)
+		print(x)
+		tank.on(SpeedPercent(x), SpeedPercent(x))
+		if (x > -20):	
+			x = x - .25
+		dist = leftMotor.degrees*-1	
+	tank.stop
 	r=-10
 	l=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.1 )
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.085 )
 	
 
 	print ("going forward")
 	x=-10
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.3)
+	tank.on_for_seconds(SpeedPercent(x), SpeedPercent(x), 2)
 
 	r=-10
 	l=-1
@@ -275,4 +284,4 @@ def Bench_Scotch():
 
 	print ("going forward")
 	x=50
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.62)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2)

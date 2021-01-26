@@ -4,13 +4,14 @@ from configruation import *
 
 def follow_line_1(speed, time):
 	print('following line')
-	tank.cs = ColorSensor(INPUT_1)
+	tank.cs = ColorSensor(INPUT_3)
 	tank.follow_line(
         kp=1.8, ki=0.009, kd=0,
         speed=SpeedPercent(speed),
         follow_for=follow_for_ms,
         ms=time,
-        follow_left_edge=False
+        follow_left_edge=True,
+		target_light_intensity=17
         )
 
 def follow_line_2():
@@ -51,7 +52,7 @@ def align_2(): # to be adjusted
 	rightMotor.reset()
 	if leftBlack:
 		print('Since Robot saw the black line to the left move forward and then turn around to straight')
-		tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),tankDegrees*2)
+		tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),tankDegrees*3)
 		tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),tankDegrees)
 		tankDegrees=0
 		tank.stop()
@@ -83,11 +84,11 @@ def align_2(): # to be adjusted
 			rightMotor.reset()
 			print(tankDegrees)
 			print('move forward')
-			tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),tankDegrees*2)
+			tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),tankDegrees*2.25)
 			print('stragihten out')
 			tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),tankDegrees)
 			tank.stop()
-	print('go back to wall')
+	print('go back to wall')		
 	tank.on_for_seconds(SpeedPercent(30),SpeedPercent(30),1.25)
 
 def run3_b():
@@ -220,14 +221,29 @@ def passive3():
 	leftMotor.reset()
 	tank.on_for_seconds(SpeedPercent(20),SpeedPercent(-20),.35)
 	sleep(.25)
-	tankDegrees = leftMotor.degrees*.75
+	tankDegrees = leftMotor.degrees
 	print(tankDegrees)
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),tankDegrees)
+	print(color3.reflected_light_intensity)
+	while color3.reflected_light_intensity > 10:
+		tank.on(SpeedPercent(-10),SpeedPercent(10))
+		print(color3.reflected_light_intensity)
 	tank.stop()
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),400)
-	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),160)
+	follow_line_1(-10,3700)
+	#tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),400)
+	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),150)
 
 def go_under_bridge():
-	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),100)
-	follow_line_1(10,3000)
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),700)
+	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),750)
+	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),600)
+	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(20),75)
+
+def dance():
+	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),460)
+	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(0),160)
+	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),60)
+	i = 0
+	while ( i < 5):
+		tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(20),30)
+		tank.on_for_degrees(SpeedPercent(20),SpeedPercent(-20),30)
+		i = i + 1
+	sound.speak("All done here!")

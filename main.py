@@ -35,17 +35,23 @@ def run_tres(state):
         back_from_treadmill() 
         do_rower()
         Going_Weight()
-        run3_b()
+        align_2()
+        passive3()
+        go_under_bridge()
+        dance()
+
 
 def run_3b(state):
     if state:
         print('starting run tres')
         sound.beep()
     else:
-        print('Run 3')
+        print('Run 3')        
+        Going_Weight()
         align_2()
         passive3()
         go_under_bridge()
+        dance()
         
 def tests(state):
         if state:
@@ -53,7 +59,7 @@ def tests(state):
             sound.beep()
         else:
             print('Tests')
-            run_one()
+            follow_line_1(10,3000)
 
 def buttons():
 	btn.on_right = run_tres
@@ -63,6 +69,7 @@ def buttons():
 	btn.on_left = run_uno
 	print('starting main')
 	sound.play_tone(700, 0.5)
+	sound.speak("Lets do this")
 	# sound.play_tone(600, 0.5)
 	# sound.play_tone(700, 0.5)
 	# sound.play_tone(600, 0.5)
@@ -83,6 +90,5 @@ def buttons():
 	while True:
 		btn.process()
 		sleep(0.01)
-
 
 buttons()

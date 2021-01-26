@@ -2,14 +2,14 @@
 from configruation import *
 
 def align():
-	sleep(1)
+	sleep(.25)
 	print("align")
-	while color2.color_name != "White":
-		print(color2.color_name)
-		tank.on(SpeedPercent(-20), SpeedPercent(-20))
-		print(color2.color_name)
+	# while color2.color_name != "White":
+	# 	print(color2.color_name)
+	# 	tank.on(SpeedPercent(-20), SpeedPercent(-20))
+	# 	print(color2.color_name)
 	tank.stop()
-	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-20),120)
+	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-20),140)
 	leftBlack =  True
 	rightBlack = True
 	tankDegrees = 0
@@ -31,7 +31,7 @@ def align():
 	rightMotor.reset()
 	
 	if leftBlack:
-		tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),tankDegrees*1.5)
+		tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),tankDegrees*2)
 		tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),tankDegrees/1)
 		tankDegrees=0
 		tank.stop()
@@ -89,6 +89,7 @@ def go_back_from_step_tracker():
 		light_intensity = color1.reflected_light_intensity
 		print(light_intensity)
 	tank.stop()
+	
 	print ("reach stepper and push")
 	l=-10
 	r=20
@@ -208,23 +209,27 @@ def do_rower():
 	#nirav's version of doing the rower
 
 	print("go forward")
-	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),500)
-	tank.on_for_degrees(SpeedPercent(15), SpeedPercent(-35),94)
+	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-15),500)
+	tank.on_for_degrees(SpeedPercent(5), SpeedPercent(-25),94)
 	tank.on_for_degrees(SpeedPercent(5), SpeedPercent(-20),85)
 	print("turn to the rower")
-	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),76)
+	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),90)
 	tank.on_for_seconds(SpeedPercent(-10), SpeedPercent(-10),1.5)
-	tank.on_for_seconds(SpeedPercent(10), SpeedPercent(10),1.5)
+	tank.on_for_seconds(SpeedPercent(10), SpeedPercent(10),1.8)
 	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(0),20)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(0),10)
-	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(10),10)
-	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(15),10)
+	tank.on_for_degrees(SpeedPercent(30), SpeedPercent(30),60)
+	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(15),30)
 	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(10),50)
 	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(-10),10)
 	#end nirav's version of doing the rower
 
 def Going_Weight():
 	print('going to Weight Machine')
-	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(-20),500)
-	tank.on_for_degrees(SpeedPercent(-30), SpeedPercent(20),100)
-	tank.on_for_seconds(SpeedPercent(30), SpeedPercent(50),2)
+	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(20),80)
+	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-20),370)
+	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(20),150)
+	tank.on_for_seconds(SpeedPercent(20), SpeedPercent(20),3)
+
+
+	#tank.on_for_seconds(SpeedPercent(-20), SpeedPercent(-5),2)
