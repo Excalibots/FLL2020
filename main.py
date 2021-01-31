@@ -33,6 +33,7 @@ def run_tres(state):
         ready_treadmill()
         do_treadmill()
         back_from_treadmill() 
+
         do_rower()
         Going_Weight()
         align_2()
@@ -47,6 +48,8 @@ def run_3b(state):
         sound.beep()
     else:
         print('Run 3')        
+        # Going_Weight()
+        do_rower()
         Going_Weight()
         align_2()
         passive3()
@@ -59,8 +62,7 @@ def tests(state):
             sound.beep()
         else:
             print('Tests')
-            follow_line_1(10,3000)
-
+            do_weights()
 def buttons():
 	btn.on_right = run_tres
 	btn.on_up = run_dos

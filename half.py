@@ -95,13 +95,18 @@ def go_back_from_step_tracker():
 	r=20
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), .2)
 
+	x = -10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .25)
+	x = 10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .25)
+		
 	print ("reach stepper and push")
 	l=20
 	r=23
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.8)
-	
+
 	print ("reach stepper and push")
-	l=32
+	l=35
 	r=22
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3.3)
 
@@ -214,8 +219,8 @@ def do_rower():
 	tank.on_for_degrees(SpeedPercent(5), SpeedPercent(-20),85)
 	print("turn to the rower")
 	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),90)
-	tank.on_for_seconds(SpeedPercent(-10), SpeedPercent(-10),1.5)
-	tank.on_for_seconds(SpeedPercent(10), SpeedPercent(10),1.8)
+	tank.on_for_seconds(SpeedPercent(-10), SpeedPercent(-10),1.7)
+	tank.on_for_seconds(SpeedPercent(10), SpeedPercent(10),2)
 	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(0),20)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(0),10)
 	tank.on_for_degrees(SpeedPercent(30), SpeedPercent(30),60)
@@ -227,9 +232,10 @@ def do_rower():
 def Going_Weight():
 	print('going to Weight Machine')
 	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(20),80)
-	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-20),370)
-	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(20),150)
+	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-20),390)
+	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(20),165)
 	tank.on_for_seconds(SpeedPercent(20), SpeedPercent(20),3)
 
-
+def do_weights():
+	med.on_for_rotations(SpeedPercent(-10),3)
 	#tank.on_for_seconds(SpeedPercent(-20), SpeedPercent(-5),2)

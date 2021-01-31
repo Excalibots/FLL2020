@@ -234,16 +234,19 @@ def passive3():
 
 def go_under_bridge():
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),750)
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),600)
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(20),75)
+	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),300)
+	tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(-30),300)
+	tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(30),75)
 
 def dance():
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),460)
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(0),160)
-	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),60)
+	tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(-30),460)
+	tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(0),160)
+	#tank.on_for_degrees(SpeedPercent(30),SpeedPercent(30),60)
 	i = 0
-	while ( i < 5):
-		tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(20),30)
-		tank.on_for_degrees(SpeedPercent(20),SpeedPercent(-20),30)
+	while ( i < 15):
+		tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(30),180)
+		tank.on_for_degrees(SpeedPercent(30),SpeedPercent(-30),180)
+		tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(30),50)
+		tank.on_for_degrees(SpeedPercent(30),SpeedPercent(-30),50)
 		i = i + 1
 	sound.speak("All done here!")

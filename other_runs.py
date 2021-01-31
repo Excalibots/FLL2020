@@ -65,7 +65,7 @@ def run_one():
 	print ("going backward")
 	x=-15
 	tank.on_for_degrees(SpeedPercent(x), SpeedPercent(x), 180)
-	# slide dude falls here
+	# slide guy falls by this line
 
 	# print ("going right")
 	# r=0
@@ -94,7 +94,7 @@ def run_one():
 	#sleep(0.25)
 	sleep(.25)
 	tank.on_for_degrees(SpeedPercent(-7),SpeedPercent(-10),55)
-	tank.on_for_seconds(SpeedPercent(-3),SpeedPercent(-3),1)
+	tank.on_for_seconds(SpeedPercent(-3),SpeedPercent(-3),1) # try for 1 more time to push the block on boccia
 	sleep(.25)
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(7),110)
 
@@ -103,13 +103,13 @@ def run_one():
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),90)
 	
 	tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(-15),380)
-	tank.on_for_degrees(SpeedPercent(-7),SpeedPercent(-7),70)
+	tank.on_for_degrees(SpeedPercent(-7),SpeedPercent(-7),70) # dump the crate into the boccia target area
 
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),60)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),65) # turn on an angle to go to base after dumping the crate in the target area
 
-	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),1000)
-	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(-50),70)
-	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),600)
+	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),1500)
+	#tank.on_for_degrees(SpeedPercent(50),SpeedPercent(-50),70)
+
 	
 	# print ("going forward")
 	# x=16
@@ -263,9 +263,12 @@ def Bench_Scotch():
 		print(dist)
 		print(x)
 		tank.on(SpeedPercent(x), SpeedPercent(x))
-		if (x > -20):	
+		if (x > -20 and dist < 200):	
 			x = x - .25
-		dist = leftMotor.degrees*-1	
+		if (dist > 200 and x < -5):
+			x = x + .25
+		dist = leftMotor.degrees*-1
+
 	tank.stop
 	r=-10
 	l=0
