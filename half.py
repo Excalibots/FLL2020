@@ -4,10 +4,7 @@ from configruation import *
 def align():
 	sleep(.25)
 	print("align")
-	# while color2.color_name != "White":
-	# 	print(color2.color_name)
-	# 	tank.on(SpeedPercent(-20), SpeedPercent(-20))
-	# 	print(color2.color_name)
+
 	tank.stop()
 	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-20),140)
 	leftBlack =  True
@@ -100,35 +97,16 @@ def go_back_from_step_tracker():
 	x = 10
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .25)
 		
-	print ("reach stepper and push")
+	print ("reach stepper")
 	l=20
 	r=23
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.8)
 
-	print ("reach stepper and push")
+	print ("push stepper")
 	l=35
 	r=22
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3.3)
 
-	# print ("reach stepper and push")
-	# l=-21
-	# r=-10
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.2)
-
-	# print ("reach stepper and push")
-	# l=1
-	# r=8
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.1)
-
-	# print ("reach stepper and push")
-	# l=20
-	# r=20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.0)
-
-	# print ("reach stepper and push")
-	# l=0
-	# r=20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 2.0)
 
 def ready_treadmill():
 	align()
@@ -169,20 +147,7 @@ def do_treadmill():
 	r=40
 	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 3.5)
 
-	# print('getting of treadmill')
-	# l=-20
-	# r=-20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
 
-	# print('turning to face walll')
-	# l=20
-	# r=-20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)
-
-	# print('aligning with walll')
-	# l=20
-	# r=20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1)
 
 def test():
 	print(color1.color_name)

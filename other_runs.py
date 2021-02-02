@@ -118,73 +118,7 @@ def run_one():
 	tank.stop()
 	tank.on_for_degrees(SpeedPercent(30),SpeedPercent(-30),90)
 	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),400)
-	#tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),1500)
-	#tank.on_for_degrees(SpeedPercent(50),SpeedPercent(-50),70)
-
 	
-	# print ("going forward")
-	# x=16
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.09)
-
-	# print ("going backward")
-	# x=-10
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.4)
-
-	# print ("going left")
-	# r=15
-	# l=-0.5
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.7 )
-
-	# print ("going left")
-	# r=-0.5
-	# l=-15
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.57 )
-
-
-	# print ("going backward")
-	# x=-10
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.215)
-
-	# print ("going backward")
-
-	# x=16
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 0.7)
-
-	# print ("going left")
-	# r=-30
-	# l=0
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.43 )
-
-	# print ("going backward")
-
-	# x=-12
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.31)
-
-	# print ("going backward")
-
-	# x=30
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1)
-
-	# print ("going left")
-	# r=20
-	# l=0
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.2 )
-
-	# print ("going backward")
-
-	# x=30
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
-
-	# print ("going left")
-	# r=0
-	# l=20
-	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.2 )
-
-	# print ("going backward")
-
-	# x=30
-	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.5)
-
 
 def foll_line():
 	tank.cs = ColorSensor(INPUT_2)
@@ -225,42 +159,6 @@ def run_two():
 	x=40
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2
 	)
-
-
-# run_two()
-
-
-	
-# # TOP LEFT = PORT 1
-# # TOP RIGHT = PORT 4
-# # BOTTOM LEFT = PORT 2
-# # BOTTOM RIGHT = PORT 3
-	
-# # #
-# # 	print ("going backward")s
-# # 	x=-30
-# # 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2.1)
-
-# # 	print ("going left")
-# # 	r=30
-# # 	l=-50
-# # 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),0.33)
-	
-
-# 	#turn right
-# 	#backward
-
-# 	#turn left
-# 	#straight 
-# 	#left
-# 	#straight into white area
-
-# run_one()
-
-# # follow_line()
-
-
-# #Test Program to check sensors and motors.
 
 
 
