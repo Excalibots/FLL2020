@@ -244,9 +244,7 @@ def dance():
 	#tank.on_for_degrees(SpeedPercent(30),SpeedPercent(30),60)
 	i = 0
 	while ( i < 15):
-		tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(30),180)
-		tank.on_for_degrees(SpeedPercent(30),SpeedPercent(-30),180)
-		tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(30),50)
-		tank.on_for_degrees(SpeedPercent(30),SpeedPercent(-30),50)
+		tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),180)
+		tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),180)
 		i = i + 1
 	sound.speak("All done here!")

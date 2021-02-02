@@ -56,7 +56,7 @@ def align():
 			rightMotor.reset()
 			print(tankDegrees)
 			tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),tankDegrees*2)
-			tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),tankDegrees/2)
+			tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),tankDegrees)
 			tank.stop()
 
 def do_step_tracker():
@@ -220,8 +220,8 @@ def do_rower():
 	print("turn to the rower")
 	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(-20),90)
 	tank.on_for_seconds(SpeedPercent(-10), SpeedPercent(-10),1.7)
-	tank.on_for_seconds(SpeedPercent(10), SpeedPercent(10),2)
-	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(0),20)
+	tank.on_for_seconds(SpeedPercent(10), SpeedPercent(10),2.1)
+	tank.on_for_degrees(SpeedPercent(-18), SpeedPercent(5),30)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(0),10)
 	tank.on_for_degrees(SpeedPercent(30), SpeedPercent(30),60)
 	tank.on_for_degrees(SpeedPercent(10), SpeedPercent(15),30)

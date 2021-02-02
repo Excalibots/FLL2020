@@ -48,7 +48,6 @@ def run_3b(state):
         sound.beep()
     else:
         print('Run 3')        
-        # Going_Weight()
         do_rower()
         Going_Weight()
         align_2()

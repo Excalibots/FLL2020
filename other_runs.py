@@ -94,7 +94,7 @@ def run_one():
 	#sleep(0.25)
 	sleep(.25)
 	tank.on_for_degrees(SpeedPercent(-7),SpeedPercent(-10),55)
-	tank.on_for_seconds(SpeedPercent(-3),SpeedPercent(-3),1) # try for 1 more time to push the block on boccia
+	#tank.on_for_seconds(SpeedPercent(-3),SpeedPercent(-3),1) # try for 1 more time to push the block on boccia
 	sleep(.25)
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(7),110)
 
@@ -104,10 +104,21 @@ def run_one():
 	
 	tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(-15),380)
 	tank.on_for_degrees(SpeedPercent(-7),SpeedPercent(-7),70) # dump the crate into the boccia target area
-
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),65) # turn on an angle to go to base after dumping the crate in the target area
-
-	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),1500)
+	#tank.on_for_degrees(SpeedPercent(7),SpeedPercent(7),160)  dump the crate into the boccia target area
+	
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),68) # turn on an angle to go to base after dumping the crate in the target area
+	
+	leftMotor.reset()
+	x = 10
+	while abs(leftMotor.degrees) < 1200:
+		if x < 50:
+			x = x + 3
+			y = x
+		tank.on(SpeedPercent(x),SpeedPercent(y))
+	tank.stop()
+	tank.on_for_degrees(SpeedPercent(30),SpeedPercent(-30),90)
+	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),400)
+	#tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),1500)
 	#tank.on_for_degrees(SpeedPercent(50),SpeedPercent(-50),70)
 
 	
