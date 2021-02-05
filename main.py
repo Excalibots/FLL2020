@@ -5,7 +5,7 @@ from half import *
 from other_runs import *
 from run3 import *
 
-#set up the runs here
+#!Final Runs
 def run_uno(state):
         if state:
             print('starting run tres')
@@ -40,8 +40,7 @@ def run_tres(state):
         passive3()
         go_under_bridge()
         dance()
-
-
+#?--------------------------Extras----------------------------------------
 def run_3b(state):
     if state:
         print('starting run tres')
@@ -54,7 +53,7 @@ def run_3b(state):
         passive3()
         go_under_bridge()
         dance()
-        
+
 def tests(state):
         if state:
             print('starting run tres')
@@ -62,6 +61,7 @@ def tests(state):
         else:
             print('Tests')
             do_weights()
+
 def buttons():
 	btn.on_right = run_tres
 	btn.on_up = run_dos

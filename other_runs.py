@@ -25,7 +25,6 @@ def follow_line():
 		sleep_time=0.005,
 		target_light_intensity=30
 	)
-	
 
 
 #center of letter g in league

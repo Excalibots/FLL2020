@@ -9,6 +9,7 @@ from ev3dev2.button   import *
 from ev3dev2.wheel import EV3Tire
 from ev3dev2.sound import Sound
 
+#!Vital Functions
 STUD_MM = 8
 mdiff = MoveDifferential(OUTPUT_A, OUTPUT_D, EV3Tire, 16 * STUD_MM)
 tank = MoveTank(OUTPUT_A, OUTPUT_D)
