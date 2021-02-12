@@ -4,64 +4,69 @@ from configruation import *
 from half import *
 from other_runs import *
 from run3 import *
+from run1 import *
 
 #set up the runs here
 def run_uno(state):
-        if state:
-            print('starting run tres')
-            sound.beep()
-        else:
-            print('Run 1')
-            run_one()
+	if state:
+		print('starting run tres')
+		sound.beep()
+	else:
+		print('Run 1')
+		PushSlideBox()
+		GoBackFromSlide()
+		GoToBoccia()
+		goTOframe()
+		DropBlocks()
+		GoToMiniBoccia()
+		goingtoweightmachine()
+	print('done')
+
 
 def run_dos(state):
-        if state:
-            print('starting run tres')
-            sound.beep()
-        else:
-            print('Run 2')
-            Bench_Scotch()
+	if state:
+		print('starting run tres')
+		sound.beep()
+	else:
+		print('Run 2')
+		# Bench_Scotch()
+		benchofthescotch()
 
 def run_tres(state):
-    if state:
-        print('starting run tres')
-        sound.beep()
-    else:
-        print('Run 2a')
-        do_step_tracker()
-        go_back_from_step_tracker()
-        ready_treadmill()
-        do_treadmill()
-        back_from_treadmill() 
+	if state:
+		print('starting run tres')
+		sound.beep()
+	else:
+		print('Run 2a')
+		do_step_tracker()
+		go_back_from_step_tracker()
+		ready_treadmill()
+		do_treadmill()
+		back_from_treadmill() 
 
-        do_rower()
-        Going_Weight()
-        align_2()
-        passive3()
-        go_under_bridge()
-        dance()
+		do_rower()
+		Going_Weight()
+		align_2()
+		passive3()
+		go_under_bridge()
+		dance()
 
 
 def run_3b(state):
-    if state:
-        print('starting run tres')
-        sound.beep()
-    else:
-        print('Run 3')        
-        do_rower()
-        Going_Weight()
-        align_2()
-        passive3()
-        go_under_bridge()
-        dance()
-        
+	if state:
+		print('starting run tres')
+		sound.beep()
+	else:
+		print('Run 3')        
+		forklift()
+		
 def tests(state):
-        if state:
-            print('starting run tres')
-            sound.beep()
-        else:
-            print('Tests')
-            do_weights()
+	if state:
+		print('starting run tres')
+		sound.beep()
+	else:
+		print('Tests')
+		forklift_down()
 def buttons():
 	btn.on_right = run_tres
 	btn.on_up = run_dos

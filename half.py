@@ -101,12 +101,12 @@ def go_back_from_step_tracker():
 	l=20
 	r=23
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.8)
-
+	sleep(2)
 	print ("push stepper")
 	l=35
 	r=22
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3.3)
-
+	sleep(2)
 
 def ready_treadmill():
 	align()
@@ -150,10 +150,19 @@ def do_treadmill():
 
 
 def test():
-	print(color1.color_name)
-	print(color2.color_name)
-	print(color3.color_name)
-	print("***********************")
+	sound.speak("v4 Victory is I")
+	sound.speak("excalibots are fly")
+	sound.play_song((
+	('D4', 'e3'),      # intro anacrouse
+	('D4', 'e3'),
+	('D4', 'e3'),
+	('G4', 'h'),       # meas 1
+	('D5', 'h'),
+	('C5', 'e3'),      # meas 2
+	('B4', 'e3'),
+	('A4', 'e3'),
+	('G5', 'h'),
+	('D5', 'q')))
 
 def back_from_treadmill():
 	
@@ -204,3 +213,41 @@ def Going_Weight():
 def do_weights():
 	med.on_for_rotations(SpeedPercent(-10),3)
 	#tank.on_for_seconds(SpeedPercent(-20), SpeedPercent(-5),2)
+
+def forklift():
+	medMotor.on_for_degrees(SpeedPercent(20),20)
+	medMotor.stop()
+
+def forklift_down():
+	medMotor.on_for_degrees(SpeedPercent(-20),20)
+	medMotor.stop()
+
+
+def go_back_from_step_tracker2():
+
+	x=-25
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .2)
+	light_intensity = color1.reflected_light_intensity
+	while light_intensity < 80:
+		tank.on(SpeedPercent(x), SpeedPercent(x))
+		light_intensity = color1.reflected_light_intensity
+		print(light_intensity)
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .2)
+	light_intensity = color1.reflected_light_intensity
+	while light_intensity < 80:
+		tank.on(SpeedPercent(x), SpeedPercent(x))
+		light_intensity = color1.reflected_light_intensity
+		print(light_intensity)
+	tank.stop()
+	sleep(3)
+	print ("reach stepper and push")
+	l=-10
+	r=20
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), .2)
+
+	x = -10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .25)
+	x = 10
+	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1.25)
+	tank.on_for_degrees(SpeedPercent(-10), SpeedPercent(10), 45)
+

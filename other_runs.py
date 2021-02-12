@@ -197,3 +197,57 @@ def Bench_Scotch():
 	print ("going forward")
 	x=50
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2)
+
+def benchofthescotch():
+	r=-12
+	l=-10
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1.3 )
+
+	r=-15
+	l=-10
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1 )
+
+	r=40
+	l=30
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),2 )
+
+	r=10
+	l=10
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1 )
+
+	# print ("going forward")
+	# x=-5
+	# leftMotor.reset()
+	# print(leftMotor.degrees)
+	# dist = leftMotor.degrees
+	# while dist < 300:
+	# 	print(dist)
+	# 	print(x)
+	# 	tank.on(SpeedPercent(x), SpeedPercent(x))
+	# 	if (x > -20 and dist < 200):	
+	# 		x = x - .25
+	# 	if (dist > 200 and x < -5):
+	# 		x = x + .25
+	# 	dist = leftMotor.degrees*-1
+
+	# r=-0
+	# l=-10
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1 )
+
+	# print ("going forward")
+	# x=10
+	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1)
+
+	# r=-10
+	# l=-1
+	# tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r),1 )
+
+	# print ("going forward")
+	# x=10
+	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 1)
+
+	# sleep(0.5)
+
+	# print ("going forward")
+	# x=50
+	# tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), 2)
