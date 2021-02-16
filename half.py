@@ -215,11 +215,11 @@ def do_weights():
 	#tank.on_for_seconds(SpeedPercent(-20), SpeedPercent(-5),2)
 
 def forklift():
-	medMotor.on_for_degrees(SpeedPercent(20),20)
+	medMotor.on_for_degrees(SpeedPercent(100),250)
 	medMotor.stop()
 
 def forklift_down():
-	medMotor.on_for_degrees(SpeedPercent(-20),20)
+	medMotor.on_for_degrees(SpeedPercent(-100),250)
 	medMotor.stop()
 
 
