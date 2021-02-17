@@ -18,7 +18,7 @@ def R1(state):
 		# GoBackFromSlide()
 		# GoToBoccia()
 		# goTOframe(
-		# DropBlocks()
+		# DropBlocks()   
 		# GoToMiniBoccia()
 		# goingtoweightmachine()
 		# doWeights()
@@ -26,6 +26,8 @@ def R1(state):
 		t = Thread(target=moveArm)
 		t.start()
 		DoSlide()
+
+#!Be done!
 	print('done')	
 
 def run_dos(state):

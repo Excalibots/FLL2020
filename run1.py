@@ -5,9 +5,18 @@ from configruation import *
 from threading import Thread
 
 def test123():
-	FollowLineToSlide(-15,1000)
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),60)
-	FollowLineToSlide(-15,7000)
+	print(leftMotor.state)
+	leftMotor.reset()
+	while (abs(leftMotor.degrees) < 50):
+		tank.on(SpeedPercent(-15),SpeedPercent(-15))
+		print(leftMotor.state)
+	print('here')
+	tank.stop()
+	leftMotor.duty_cycle_sp=10
+	while (not leftMotor.is_overloaded or not leftMotor.is_stalled):
+		print(leftMotor.state)
+		leftMotor.run_direct()
+	tank.stop(brake=True)
 
 def PushSlideBox():
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),220)
@@ -181,32 +190,27 @@ def GoBackFromWeight():
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(0),500)
 	tank.on_for_degrees(SpeedPercent(15),SpeedPercent(15),40)
 	medMotor.on_for_rotations(SpeedPercent(100),-6.5)
-	tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(-15),90)
+	tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(-15),60)
+	tank.on_for_seconds(SpeedPercent(-5),SpeedPercent(-5),.7)
+	tank.stop()
+	sleep(.5)
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),15)
 	# medMotor.on_for_rotations(SpeedPercent(100),10)
 
 def DoSlide():
 	#move till the arm moves up
-	tank.on_for_degrees(SpeedPercent(-5),SpeedPercent(-5),200)
+	tank.on_for_degrees(SpeedPercent(-7),SpeedPercent(-7),200)
 	# go back
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),100)
 	#turn to be away from the frame
-	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(-20),100)
-	medMotor.on_for_rotations(SpeedPercent(100),-4)
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(	20),100)
-
-
-	#medMotor.on_for_rotations(SpeedPercent(100),-2)
-	# tank.on_for_degrees(SpeedPercent(20),SpeedPercent(0),100)
-	# #tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),25)
-	# medMotor.on_for_rotations(SpeedPercent(100),2)
-	# sleep(3)
-	# tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),100)
-	# tank.on_for_degrees(SpeedPercent(0),SpeedPercent(20),100)
-	# tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),1000)
+	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(-20),50)
+	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),100)
+	medMotor.on_for_rotations(SpeedPercent(100),-3)
+	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(20),75)
+	tank.on_for_degrees(SpeedPercent(-40),SpeedPercent(	-32),1200)
 
 def moveForward():
-	tank.on_for_degrees(SpeedPercent(-5),SpeedPercent(-5),200)
+	tank.on_for_degrees(SpeedPercent(-3),SpeedPercent(-3),150)
 	tank.stop()		
 
 def FollowLineToSlide(speed,time):
@@ -232,5 +236,4 @@ def FollowLineC1(speed,time):
 	)
 
 def moveArm():
-	sleep(0.5)
-	medMotor.on_for_rotations(SpeedPercent(65),3.5)
+	medMotor.on_for_rotations(SpeedPercent(60),3.5)
