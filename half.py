@@ -4,7 +4,6 @@ from configruation import *
 def align():
 	sleep(.25)
 	print("align")
-
 	tank.stop()
 	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(-20),140)
 	leftBlack =  True
@@ -101,22 +100,18 @@ def go_back_from_step_tracker():
 	l=20
 	r=23
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.8)
-	sleep(2)
 	print ("push stepper")
 	l=35
-	r=22
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 3.3)
-	sleep(2)
+	r=24
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 2.5)
+
 
 def ready_treadmill():
-	align()
+	#align()
 	print ("align with wall")
 	l=20
 	r=20
-	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 2)	
-
-def do_treadmill():
-
+	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 1)
 	print ("turning back to face treadmillh")
 	l=-20
 	r=-20
@@ -128,25 +123,113 @@ def do_treadmill():
 	print ("turning")
 	l=0
 	r=20
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)
-
-	print ("slight turn to be perfectly parallel")
-	l=20
-	r=0
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.00)
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.3)	
 
 	print ("getting on treadmill")
 	l=20
 	r=20
 	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 1.1)
 
-	sleep(0.5)
+def do_treadmill():
 
-	print('running on treadmill')
+	sleep(0.5)
+	print('running on treadmill spin one wheel')
 	l=0
 	r=40
-	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 3.5)
+	tank.on_for_seconds(SpeedPercent(l), SpeedPercent(r), 2.75)
 
+def doRowerWithArm():
+	print('running on treadmill')
+	#go forward
+	tank.on_for_seconds(SpeedPercent(20),SpeedPercent(20),1.5)
+	#Go Forward
+	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),260)
+	#bring the arm down
+	medMotor2.on_for_seconds(SpeedPercent(-10),2)
+	#move in to make sure it gets locked
+	tank.on_for_degrees(SpeedPercent(2),SpeedPercent(-2),10)
+	#move out to make sure it gets locked
+	tank.on_for_degrees(SpeedPercent(-2),SpeedPercent(2),10)
+
+def moveRowerArm():
+	#move in to the circle
+	tank.on_for_degrees(SpeedPercent(0),SpeedPercent(6),120)
+	medMotor2.on_for_degrees(SpeedPercent(10),200)
+	tank.on_for_degrees(SpeedPercent(2),SpeedPercent(-2),15)
+
+def moveArmDown():
+	medMotor.on_for_seconds(SpeedPercent(-100),1.5)
+
+def doPerson():
+	medMotor.on_for_seconds(SpeedPercent(-100),1.5)
+	#tank.on_for_degrees(SpeedPercent(2),SpeedPercent(-2),30)
+def moveArmUp():
+	medMotor.on_for_seconds(SpeedPercent(100),3.5)
+
+def goToPullUp():
+	sleep(.5)
+	#*Turn till white line
+	while (color3.reflected_light_intensity < 40):
+		tank.on(SpeedPercent(-10),SpeedPercent(10))
+	tank.stop()
+	#*turn till black line
+	while (color3.reflected_light_intensity > 18):
+		tank.on(SpeedPercent(-10),SpeedPercent(10))
+	tank.stop()
+	sleep(.25)
+	tank.cs = ColorSensor(INPUT_3)
+	tank.follow_line(
+	kp=1.8, ki=0.009, kd=0,
+	speed=SpeedPercent(-18),
+	follow_for=follow_for_ms,
+	ms=2500,
+	follow_left_edge=False,
+	target_light_intensity=17
+	)
+	while (color2.reflected_light_intensity < 40):
+		tank.on(SpeedPercent(-10),SpeedPercent(-10))
+	tank.stop()
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),200)
+	while (color2.reflected_light_intensity < 40):
+		tank.on(SpeedPercent(10),SpeedPercent(-10))
+	tank.stop()
+	while (color2.reflected_light_intensity > 20):
+		tank.on(SpeedPercent(5),SpeedPercent(-5))
+	tank.stop()	
+	while (color2.reflected_light_intensity < 40):
+		tank.on(SpeedPercent(5),SpeedPercent(-5))
+	tank.stop()
+	while (color2.reflected_light_intensity > 18):
+		tank.on(SpeedPercent(-5),SpeedPercent(5))
+	tank.stop()
+
+def goUnderPullUp():
+	tank.cs = ColorSensor(INPUT_2)
+	tank.follow_line(
+	kp=1.8, ki=0.009, kd=0,
+	speed=SpeedPercent(-12),
+	follow_for=follow_for_ms,
+	ms=2000,
+	follow_left_edge=False,
+	target_light_intensity=17
+	)	
+	tank.follow_line(
+	kp=1.8, ki=0.009, kd=0,
+	speed=SpeedPercent(-18),
+	follow_for=follow_for_ms,
+	ms=1000,
+	follow_left_edge=False,
+	target_light_intensity=17
+	)
+	tank.on_for_degrees(SpeedPercent(-25),SpeedPercent(25),70) 
+	tank.on_for_degrees(SpeedPercent(-35),SpeedPercent(-35),450)
+
+def doDanceNew():
+	counter = 1
+	while (counter < 12):
+		counter = counter + 1
+		tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(15),100) 
+		tank.on_for_degrees(SpeedPercent(15),SpeedPercent(-15),100) 
 
 
 def test():
@@ -183,7 +266,7 @@ def back_from_treadmill():
 	tank.on_for_degrees(SpeedPercent(20), SpeedPercent(20),400)
 
 def do_rower():
-	align()
+	# align()
 	tank.on_for_seconds(SpeedPercent(20),SpeedPercent(20),2.5)
 	#nirav's version of doing the rower
 
@@ -210,8 +293,6 @@ def Going_Weight():
 	tank.on_for_degrees(SpeedPercent(-20), SpeedPercent(20),165)
 	tank.on_for_seconds(SpeedPercent(20), SpeedPercent(20),3)
 
-def do_weights():
-	med.on_for_rotations(SpeedPercent(-10),3)
 	#tank.on_for_seconds(SpeedPercent(-20), SpeedPercent(-5),2)
 
 def forklift():
@@ -239,7 +320,7 @@ def go_back_from_step_tracker2():
 		light_intensity = color1.reflected_light_intensity
 		print(light_intensity)
 	tank.stop()
-	sleep(3)
+	sleep(.5)
 	print ("reach stepper and push")
 	l=-10
 	r=20

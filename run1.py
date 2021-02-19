@@ -4,23 +4,9 @@
 from configruation import *
 from threading import Thread
 
-def test123():
-	print(leftMotor.state)
-	leftMotor.reset()
-	while (abs(leftMotor.degrees) < 50):
-		tank.on(SpeedPercent(-15),SpeedPercent(-15))
-		print(leftMotor.state)
-	print('here')
-	tank.stop()
-	leftMotor.duty_cycle_sp=10
-	while (not leftMotor.is_overloaded or not leftMotor.is_stalled):
-		print(leftMotor.state)
-		leftMotor.run_direct()
-	tank.stop(brake=True)
-
 def PushSlideBox():
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),220)
-	FollowLineToSlide(-12,2200)
+	FollowLineToSlide(-12,2500)
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),160)
 
 def GoBackFromSlide():
@@ -42,9 +28,6 @@ def goTOframe():
 		print(color2.reflected_light_intensity)
 		tank.on(SpeedPercent(15),SpeedPercent(15))
 	tank.stop()
-	#tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),140)
-	# turn to Frame
-	#tank.on_for_degrees(SpeedPercent(20),SpeedPercent(-20),140)
 	# Go to Frame
 	#turn so that color 3 is not on white
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),45)
@@ -94,6 +77,7 @@ def goTOframe():
 	tank.stop()
 	FollowLineToSlide(-10,2000)
 	tank.stop()
+
 def DropBlocks():
 	# Turn to the frame
 	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),45)
@@ -133,6 +117,12 @@ def goingtoweightmachine():
 	#medMotor.on_for_degrees(SpeedPercent(20),150)
 
 	medMotor.on_for_degrees(SpeedPercent(100),1620)
+	#******* TESTING ********************************
+	#! adding this because the robot is on the other side of the white line
+	while color2.reflected_light_intensity < 40:
+			tank.on(SpeedPercent(-7),SpeedPercent(7))
+	tank.stop()
+	#************************************************
 	while color2.reflected_light_intensity > 10:
 			tank.on(SpeedPercent(-7),SpeedPercent(7))
 	tank.stop()
@@ -142,9 +132,11 @@ def goingtoweightmachine():
 	FollowLineToSlide(-15,5000)
 
 def newHopScotch():
-	tank.on_for_degrees(SpeedPercent(-16),SpeedPercent(-18),400)
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-12),150)
-	tank.on_for_degrees(SpeedPercent(50),SpeedPercent(50),1000)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-12),400)
+	sleep(0.5)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-12),168)
+	sleep(0.5)
+	tank.on_for_degrees(SpeedPercent(30),SpeedPercent(30),1000)
 
 
 def doWeights():
@@ -159,37 +151,38 @@ def doWeights():
 
 
 def GoBackFromWeight():
-	# medMotor.on_for_rotations(SpeedPercent(100),5)
-	# tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),25)
-	# print('going back from weight machine')
-	# leftBlack =  True
-	# rightBlack = True
-	# tankDegrees = 0
-	# leftMotor.reset()
-	# rightMotor.reset()
-	# while color1.reflected_light_intensity > 15:
-	# 	tank.on(SpeedPercent(-10), SpeedPercent(10))
-	# 	tankDegrees = leftMotor.degrees
-	# 	if abs(tankDegrees) > 45:
-	# 		leftBlack = False
-	# 		tank.stop()
-	# 		break
-	# tank.stop()
-	# if (not leftBlack):
-	# 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),abs(tankDegrees))
-	# 	leftMotor.reset()
-	# 	while color1.reflected_light_intensity > 15:
-	# 		tank.on(SpeedPercent(10), SpeedPercent(-10))
-	# 		tankDegrees = leftMotor.degrees
-	# 		if abs(tankDegrees) > 45:
-	# 			tank.stop()
-	# 			break
-	# 	tank.stop()	
-	# FollowLineC1(5,3000)
-	# FollowLineC1(10,6500)
+	medMotor.on_for_rotations(SpeedPercent(100),4.5)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),25)
+	print('going back from weight machine')
+	leftBlack =  True
+	rightBlack = True
+	tankDegrees = 0
+	leftMotor.reset()
+	rightMotor.reset()
+	while color1.reflected_light_intensity > 20:
+		tank.on(SpeedPercent(-10), SpeedPercent(10))
+		tankDegrees = leftMotor.degrees
+		if abs(tankDegrees) > 45:
+			leftBlack = False
+			tank.stop()
+			break
+	tank.stop()
+	if (not leftBlack):
+		tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),abs(tankDegrees))
+		leftMotor.reset()
+		while color1.reflected_light_intensity > 20:
+			tank.on(SpeedPercent(10), SpeedPercent(-10))
+			tankDegrees = leftMotor.degrees
+			if abs(tankDegrees) > 45:
+				tank.stop()
+				break
+		tank.stop()	
+	FollowLineC1(5,3000)
+	FollowLineC1(10,5750)
+	sleep(.25)
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(0),500)
 	tank.on_for_degrees(SpeedPercent(15),SpeedPercent(15),40)
-	medMotor.on_for_rotations(SpeedPercent(100),-6.5)
+	medMotor.on_for_rotations(SpeedPercent(100),-6.75)
 	tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(-15),60)
 	tank.on_for_seconds(SpeedPercent(-5),SpeedPercent(-5),.7)
 	tank.stop()
@@ -206,8 +199,11 @@ def DoSlide():
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(-20),50)
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),100)
 	medMotor.on_for_rotations(SpeedPercent(100),-3)
+	#tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),100)
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(20),75)
-	tank.on_for_degrees(SpeedPercent(-40),SpeedPercent(	-32),1200)
+	#sleep(5)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),100)
+	tank.on_for_degrees(SpeedPercent(-40),SpeedPercent(	-40),1300)
 
 def moveForward():
 	tank.on_for_degrees(SpeedPercent(-3),SpeedPercent(-3),150)

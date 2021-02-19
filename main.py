@@ -3,7 +3,6 @@
 from configruation import *
 from half import *
 from other_runs import *
-from run3 import *
 from run1 import *
 from threading import Thread
 
@@ -11,78 +10,77 @@ from threading import Thread
 def R1(state):
 	if state:
 		print('starting run 1')
-		sound.beep()
 	else:
 		print('Run 1')
-		# PushSlideBox()
-		# GoBackFromSlide()
-		# GoToBoccia()
-		# goTOframe(
-		# DropBlocks()   
-		# GoToMiniBoccia()
-		# goingtoweightmachine()
-		# doWeights()
+		PushSlideBox()
+		GoBackFromSlide()
+		GoToBoccia()
+		goTOframe()
+		DropBlocks()   
+		GoToMiniBoccia()
+		goingtoweightmachine()
+		doWeights()
 		GoBackFromWeight()
 		t = Thread(target=moveArm)
 		t.start()
-		DoSlide()
-
-#!Be done!
+		DoSlide() 
 	print('done')	
 
-def run_dos(state):
+def R2(state):
 	if state:
 		print('starting run tres')
-		sound.beep()
 	else:
 		print('Run 2')
-		# Bench_Scotch()
 		newHopScotch()
 
-def run_tres(state):
+def R3(state):
 	if state:
 		print('starting run tres')
-		sound.beep()
 	else:
-		print('Run 2a')
+		print('3rd run')
 		do_step_tracker()
 		go_back_from_step_tracker()
 		ready_treadmill()
 		do_treadmill()
-		back_from_treadmill() 
+		back_from_treadmill()
+		align()
+		t1 = Thread(target=moveArmDown)
+		t1.start()
+		doRowerWithArm()
+		moveRowerArm()
+		doPerson()
+		t2 = Thread(target=moveArmUp)
+		t2.start()
+		goToPullUp()
+		goUnderPullUp()
+		doDanceNew()
 
-		do_rower()
-		Going_Weight()
-		align_2()
-		passive3()
-		go_under_bridge()
-		dance()
 
 
-def run_3b(state):
+def armDown(state):
 	if state:
-		print('Moving motor up')
+		print('Moving Arm Down')
 		medMotor.reset()
 		medMotor.on(SpeedPercent(-50))
 	else:
-		print('Stop')
+		print('Stopped Moving Arm Down')
 		#print(medMotor.degrees())       
 		medMotor.stop()		
-def tests(state):
+def armUp(state):
 	if state:
-		print('starting run tres')
+		print('Moving Arm Up')
 		medMotor.reset() 
 		medMotor.on(SpeedPercent(50))
 	else:
-		print('Tests')
+		print('Stopped Moving Arm Up')
 		#print(medMotor.degrees)       
 		medMotor.stop()
 
 def buttons():
-	btn.on_right = run_tres
-	btn.on_up = run_dos
-	btn.on_down = run_3b
-	btn.on_enter = tests
+	btn.on_right = R3
+	btn.on_up = R2
+	btn.on_down = armDown
+	btn.on_enter = armUp
 	btn.on_left = R1
 	print('starting main')
 	sound.play_tone(700, 0.5)
