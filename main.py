@@ -12,12 +12,12 @@ def R1(state):
 		print('starting run 1')
 	else:
 		print('Run 1')
-		PushSlideBox()
-		GoBackFromSlide()
-		GoToBoccia()
+		# PushSlideBox()
+		# GoBackFromSlide()
+		# GoToBoccia()
 		goTOframe()
 		DropBlocks()   
-		GoToMiniBoccia()
+		GoToMiniBoccia()		
 		goingtoweightmachine()
 		doWeights()
 		GoBackFromWeight()
@@ -27,7 +27,7 @@ def R1(state):
 	print('done')	
 
 def R2(state):
-	if state:
+	if state: 
 		print('starting run tres')
 	else:
 		print('Run 2')

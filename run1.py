@@ -36,16 +36,16 @@ def goTOframe():
 		tank.on(SpeedPercent(10),SpeedPercent(-10))
 	tank.stop()
 	# turn till color 3 sees black
-	while color3.reflected_light_intensity > 20:
+	while color3.reflected_light_intensity > 17:
 		tank.on(SpeedPercent(10),SpeedPercent(-10))
 	tank.stop()
 	# turn till color 3 sees white
-	while color3.reflected_light_intensity < 45:
+	while color3.reflected_light_intensity < 40:
 		tank.on(SpeedPercent(10),SpeedPercent(-10))
 	tank.stop()	
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),15)
 	#move forward before looking for black line
-	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),45)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),45)
 	#look for black line
 	sleep(.25)
 	print("find white line after green triangle before going to the black line")
@@ -75,6 +75,8 @@ def goTOframe():
 	while color2.reflected_light_intensity >  20:
 		tank.on(SpeedPercent(5),SpeedPercent(-5))
 	tank.stop()
+	t = Thread(target=medMotor.on_for_degrees, args=(SpeedPercent(-100),2000,))
+	t.start()
 	FollowLineToSlide(-10,2000)
 	tank.stop()
 
@@ -83,11 +85,13 @@ def DropBlocks():
 	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),45)
 	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),45)
 	#drop the blocks
-	medMotor.on_for_degrees(SpeedPercent(-100),3200)
+	medMotor.on_for_degrees(SpeedPercent(-100),1200)
 	medMotor.stop()
 	sleep(.25)
 	#lift the arm up again
-	medMotor.on_for_degrees(SpeedPercent(100),850)
+	t = Thread(target=medMotor.on_for_degrees, args=(SpeedPercent(100),850,))
+	t.start()
+	#medMotor.on_for_degrees(SpeedPercent(100),850)
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),45)
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),45)
 	medMotor.stop()
@@ -142,10 +146,10 @@ def newHopScotch():
 def doWeights():
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),55)
 	medMotor.on_for_rotations(SpeedPercent(-100),8)
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),60)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),45)
 	medMotor.on_for_rotations(SpeedPercent(100),6.5)
 	medMotor.on_for_rotations(SpeedPercent(-100),3)
-	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),55)
+	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),40)
 	#FollowLineToSlide(15,5200)
 
 
@@ -159,7 +163,7 @@ def GoBackFromWeight():
 	tankDegrees = 0
 	leftMotor.reset()
 	rightMotor.reset()
-	while color1.reflected_light_intensity > 20:
+	while color1.reflected_light_intensity > 30:
 		tank.on(SpeedPercent(-10), SpeedPercent(10))
 		tankDegrees = leftMotor.degrees
 		if abs(tankDegrees) > 45:
@@ -170,34 +174,34 @@ def GoBackFromWeight():
 	if (not leftBlack):
 		tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),abs(tankDegrees))
 		leftMotor.reset()
-		while color1.reflected_light_intensity > 20:
+		while color1.reflected_light_intensity > 30:
 			tank.on(SpeedPercent(10), SpeedPercent(-10))
 			tankDegrees = leftMotor.degrees
 			if abs(tankDegrees) > 45:
 				tank.stop()
 				break
 		tank.stop()	
-	FollowLineC1(5,3000)
-	FollowLineC1(10,5750)
+	FollowLineC1(7,9750)
+	#FollowLineC1(10,5750)
+
+	#*turning to face slide
+	t3 = Thread(target=medMotor.on_for_rotations, args=(SpeedPercent(100),-7.1,))
+	t3.start()
 	sleep(.25)
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(0),500)
-	tank.on_for_degrees(SpeedPercent(15),SpeedPercent(15),40)
-	medMotor.on_for_rotations(SpeedPercent(100),-6.75)
-	tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(-15),60)
-	tank.on_for_seconds(SpeedPercent(-5),SpeedPercent(-5),.7)
+	tank.on_for_degrees(SpeedPercent(-15),SpeedPercent(-15),40)
 	tank.stop()
 	sleep(.5)
-	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),15)
-	# medMotor.on_for_rotations(SpeedPercent(100),10)
+	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),20)
 
 def DoSlide():
 	#move till the arm moves up
 	tank.on_for_degrees(SpeedPercent(-7),SpeedPercent(-7),200)
 	# go back
-	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),100)
+	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),80)
 	#turn to be away from the frame
 	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(-20),50)
-	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),100)
+	tank.on_for_degrees(SpeedPercent(20),SpeedPercent(20),80)
 	medMotor.on_for_rotations(SpeedPercent(100),-3)
 	#tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),100)
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(20),75)
@@ -228,8 +232,14 @@ def FollowLineC1(speed,time):
 	follow_for=follow_for_ms,
 	ms=time,
 	follow_left_edge=False,
-	target_light_intensity=17
+	target_light_intensity=50
 	)
 
 def moveArm():
+	sleep(.35)
 	medMotor.on_for_rotations(SpeedPercent(60),3.5)
+
+def threadTest():
+		t3 = Thread(target=medMotor.on_for_degrees, args=(SpeedPercent(-100),2000,))
+		t3.start()
+		tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),400)
