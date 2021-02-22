@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from configruation import *
+from threading import Thread
 
 def align():
 	sleep(.25)
@@ -11,7 +12,7 @@ def align():
 	tankDegrees = 0
 	leftMotor.reset()
 	rightMotor.reset()
-	while color2.color_name !="Black":
+	while color2.reflected_light_intensity >20:
 		tank.on(SpeedPercent(-10), SpeedPercent(10))
 		tankDegrees = leftMotor.degrees
 		if abs(tankDegrees) > 40:
@@ -36,7 +37,7 @@ def align():
 		tankDegrees = 0
 		leftMotor.reset()
 		rightMotor.reset()
-		while color2.color_name !="Black":
+		while color2.reflected_light_intensity > 20:
 			print(color2.color_name)
 			tank.on(SpeedPercent(10), SpeedPercent(-10))
 			tankDegrees = rightMotor.degrees
@@ -94,12 +95,12 @@ def go_back_from_step_tracker():
 	x = -10
 	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .25)
 	x = 10
-	tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .25)
+	#tank.on_for_rotations(SpeedPercent(x), SpeedPercent(x), .25)
 		
 	print ("reach stepper")
 	l=20
 	r=23
-	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.8)
+	tank.on_for_rotations(SpeedPercent(l), SpeedPercent(r), 0.9)
 	print ("push stepper")
 	l=35
 	r=24
@@ -143,17 +144,19 @@ def doRowerWithArm():
 	#go forward
 	tank.on_for_seconds(SpeedPercent(20),SpeedPercent(20),1.5)
 	#Go Forward
+	t = Thread(target=medMotor.on_for_seconds, args=(SpeedPercent(-10),1,))
+	t.start()
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),260)
 	#bring the arm down
-	medMotor2.on_for_seconds(SpeedPercent(-10),2)
+	medMotor2.on_for_seconds(SpeedPercent(-10),1)
 	#move in to make sure it gets locked
-	tank.on_for_degrees(SpeedPercent(2),SpeedPercent(-2),10)
+	tank.on_for_degrees(SpeedPercent(5),SpeedPercent(-5),10)
 	#move out to make sure it gets locked
-	tank.on_for_degrees(SpeedPercent(-2),SpeedPercent(2),10)
+	tank.on_for_degrees(SpeedPercent(-5),SpeedPercent(5),10)
 
 def moveRowerArm():
 	#move in to the circle
-	tank.on_for_degrees(SpeedPercent(0),SpeedPercent(6),120)
+	tank.on_for_degrees(SpeedPercent(0),SpeedPercent(6),140)
 	medMotor2.on_for_degrees(SpeedPercent(10),200)
 	tank.on_for_degrees(SpeedPercent(2),SpeedPercent(-2),15)
 
@@ -176,13 +179,13 @@ def goToPullUp():
 	while (color3.reflected_light_intensity > 18):
 		tank.on(SpeedPercent(-10),SpeedPercent(10))
 	tank.stop()
-	sleep(.25)
+	#sleep(.25)
 	tank.cs = ColorSensor(INPUT_3)
 	tank.follow_line(
 	kp=1.8, ki=0.009, kd=0,
-	speed=SpeedPercent(-18),
+	speed=SpeedPercent(-19),
 	follow_for=follow_for_ms,
-	ms=2500,
+	ms=2300,
 	follow_left_edge=False,
 	target_light_intensity=17
 	)
@@ -207,21 +210,21 @@ def goUnderPullUp():
 	tank.cs = ColorSensor(INPUT_2)
 	tank.follow_line(
 	kp=1.8, ki=0.009, kd=0,
-	speed=SpeedPercent(-12),
+	speed=SpeedPercent(-15),
 	follow_for=follow_for_ms,
-	ms=2000,
+	ms=1900,
 	follow_left_edge=False,
 	target_light_intensity=17
 	)	
 	tank.follow_line(
 	kp=1.8, ki=0.009, kd=0,
-	speed=SpeedPercent(-18),
+	speed=SpeedPercent(-20),
 	follow_for=follow_for_ms,
-	ms=1000,
+	ms=900,
 	follow_left_edge=False,
 	target_light_intensity=17
 	)
-	tank.on_for_degrees(SpeedPercent(-25),SpeedPercent(25),70) 
+	tank.on_for_degrees(SpeedPercent(-30),SpeedPercent(30),70) 
 	tank.on_for_degrees(SpeedPercent(-35),SpeedPercent(-35),450)
 
 def doDanceNew():

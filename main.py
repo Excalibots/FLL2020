@@ -7,20 +7,24 @@ from run1 import *
 from threading import Thread
 
 #set up the runs here
+# each function does a discrete task.
+#tasks are split to small units to help testing each one individually
+#different team memnbers can work on different runs and parts within the runs
 def R1(state):
 	if state:
 		print('starting run 1')
 	else:
 		print('Run 1')
-		# PushSlideBox()
-		# GoBackFromSlide()
-		# GoToBoccia()
+		PushSlideBox()
+		GoBackFromSlide()
+		GoToBoccia()
 		goTOframe()
 		DropBlocks()   
 		GoToMiniBoccia()		
 		goingtoweightmachine()
 		doWeights()
 		GoBackFromWeight()
+		#use a thread to move arm while moving forward
 		t = Thread(target=moveArm)
 		t.start()
 		DoSlide() 
@@ -59,24 +63,29 @@ def R3(state):
 
 def armDown(state):
 	if state:
+		#code to move arm down
 		print('Moving Arm Down')
 		medMotor.reset()
 		medMotor.on(SpeedPercent(-50))
 	else:
+		#stop the arm movement
 		print('Stopped Moving Arm Down')
 		#print(medMotor.degrees())       
 		medMotor.stop()		
 def armUp(state):
 	if state:
+		#move arm up
 		print('Moving Arm Up')
-		medMotor.reset() 
+		medMotor.reset()
 		medMotor.on(SpeedPercent(50))
 	else:
+		# stop the arm movement
 		print('Stopped Moving Arm Up')
 		#print(medMotor.degrees)       
 		medMotor.stop()
 
 def buttons():
+	#This allows the different runs to be controlled but button press
 	btn.on_right = R3
 	btn.on_up = R2
 	btn.on_down = armDown
@@ -85,25 +94,10 @@ def buttons():
 	print('starting main')
 	sound.play_tone(700, 0.5)
 	sound.speak("Lets do this")
-	# sound.play_tone(600, 0.5)
-	# sound.play_tone(700, 0.5)
-	# sound.play_tone(600, 0.5)
-	# sound.play_tone(900, 1)
-
-	# sound.play_song((
-	# ('D4', 'e3'),      # intro anacrouse
-	# ('D4', 'e3'),
-	# ('D4', 'e3'),
-	# ('G4', 'h'),       # meas 1
-	# ('D5', 'h'),
-	# ('C5', 'e3'),      # meas 2
-	# ('B4', 'e3'),
-	# ('A4', 'e3'),
-	# ('G5', 'h'),
-	# ('D5', 'q')))
 	
 	while True:
+		#start the process to listen to the button presses
 		btn.process()
 		sleep(0.01)
-
+#the function that gets called when the program starts
 buttons()

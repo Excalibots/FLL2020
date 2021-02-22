@@ -6,7 +6,7 @@ from threading import Thread
 
 def PushSlideBox():
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),220)
-	FollowLineToSlide(-12,2500)
+	FollowLineToSlide(-18,1700)
 	tank.on_for_degrees(SpeedPercent(-20),SpeedPercent(-20),160)
 
 def GoBackFromSlide():
@@ -82,18 +82,17 @@ def goTOframe():
 
 def DropBlocks():
 	# Turn to the frame
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),45)
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),45)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),50)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),50)
 	#drop the blocks
 	medMotor.on_for_degrees(SpeedPercent(-100),1200)
 	medMotor.stop()
-	sleep(.25)
 	#lift the arm up again
 	t = Thread(target=medMotor.on_for_degrees, args=(SpeedPercent(100),850,))
 	t.start()
 	#medMotor.on_for_degrees(SpeedPercent(100),850)
-	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),45)
-	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),45)
+	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),50)
+	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),50)
 	medMotor.stop()
 
 
@@ -111,7 +110,7 @@ def GoToMiniBoccia():
 	#move foward so that the robot is on the other side of the boccia
 	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(-10),30)
 	#turn inwards to have the arm be read to move the Boccia up
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),47)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),44)
 	#lift arm to push the boccia block in to the frame/target
 	medMotor.on_for_degrees(SpeedPercent(100),900)
 	#sleep(.5)	#tank.on_for_degrees(SpeedPercent(10),SpeedPercent(10),140)
@@ -146,7 +145,7 @@ def newHopScotch():
 def doWeights():
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),55)
 	medMotor.on_for_rotations(SpeedPercent(-100),8)
-	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),45)
+	tank.on_for_degrees(SpeedPercent(-10),SpeedPercent(10),52)
 	medMotor.on_for_rotations(SpeedPercent(100),6.5)
 	medMotor.on_for_rotations(SpeedPercent(-100),3)
 	tank.on_for_degrees(SpeedPercent(10),SpeedPercent(-10),40)
