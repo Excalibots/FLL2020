@@ -47,11 +47,15 @@ def R3(state):
 		ready_treadmill()
 		do_treadmill()
 		back_from_treadmill()
+		#align against the south wall before attempting doRowerWithArm
+		# this helps the robot to be consistent
 		align()
+		#move the arm down while going to rower
 		t1 = Thread(target=moveArmDown)
 		t1.start()
 		doRowerWithArm()
 		moveRowerArm()
+		#move arm with slide figure up while getting position
 		doPerson()
 		t2 = Thread(target=moveArmUp)
 		t2.start()
